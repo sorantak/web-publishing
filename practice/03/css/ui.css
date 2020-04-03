@@ -1,0 +1,62 @@
+/* reset */
+@charset "utf-8";
+@import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, button, abbr, acronym, address, code, del, 
+dfn, em, img, strong, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, 
+td, hr{margin:0;padding:0;font-size:100%;box-sizing: border-box;}
+body{height:100%;min-height:100%;font-family:'Noto Sans Korean','Malgun Gothic','맑은고딕','돋움',dotum, sans-serif;font-size:16px;color:#737373;line-height:1.5;background:url(../images/content_bg4.png) repeat;}
+h1, h2, h3, h4, h5, h6 {font-weight:normal}
+ol, ul, li {list-style:none}
+table {width:100%; border-collapse:collapse;border-spacing:0}
+form, fieldset, iframe {display:block;border:0}
+img, button {border:0 none;vertical-align:top;}
+hr {height:0; display:none}
+i, em, address{font-style:normal}
+label, button{cursor:pointer}
+blockquote, q {quotes:none}
+caption, legend {overflow:hidden;visibility:hidden;position:absolute;width:0;height:0;padding:0;margin:0;font-size:0;text-indent:-100%;white-space:nowrap;z-index:-1}
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {display:block;box-sizing: border-box;}
+input, textarea, select, button {font-family:'Noto Sans Korean','Malgun Gothic','맑은고딕','돋움',dotum, sans-serif;font-size:16px;color:#919090;line-height:1.5;letter-spacing:0;vertical-align:middle; border:none;}
+input, textarea {margin:0;padding:0;  background:none; box-sizing:border-box;}
+textarea {resize:none}
+a {color:#919090;text-decoration:none}
+a:link, a:visited {text-decoration:none}
+a:hover {text-decoration:none}
+.blind{display: none;overflow: hidden;position: absolute;width: 0;height: 0;padding: 0;margin: 0; font-size: 0;line-height: 0; text-indent: -9999em;visibility: hidden;outline: none;z-index: -1;}
+html,body{overflow:hidden;height:100%;}
+
+/* custom layout */
+/* #wrap은 index.html의 wrap이라는 section id, padding-right: header 영역 만큼 여백 지정 */
+#wrap{width: 100%; height: 100%; padding-right:250px;}
+/* 이러면 h1 태그의 글자가 안 보임 */
+#wrap > h1{font-size: 0;}
+header.logo_box{position: absolute; right: 20px; top: 75px;}
+header.logo_box img{width: 100px;}
+/* width: 250px, height: 화면 높이 전체를 사용하고 있어서 100%, 희한하게 url이 맨 앞에 .이 두 개, z-index: header가 최상단에 있도록 함 */
+#wrap header{width: 250px; height: 100%; position: fixed; right: 0px; top: 0px; background: url(../images/header-background.jfif) repeat-y; z-index: 11;}
+/* 브라우저 크기에 따라 영역이 달라질 수 있으므로 세로로 수직 정렬 */
+#wrap header nav{width: 100%; height: 100%;}
+/* flex 기준 지정 */
+#wrap header nav ul{width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: start;}
+/* 시계방향대로 top, right, bottom, left */
+#wrap header nav ul li{margin: 0px, 0px, 10px, 30px; padding-left: 15px; position: relative;}
+#wrap header nav ul li a{font-size: 16px; color: #5c1199; font-weight: 600; line-height: 30px;}
+/* 불릿 만들기 */
+#wrap header nav ul li:after{content:""; display:block; width:5px; height:5px; border-radius:50%; background:rgb(218, 139, 172); position:absolute; left:0px; top:13px;}
+/* 마우스로 메뉴 선택하면 색상 변경: 불릿은 <li>태그의 가상 요소, 메뉴가 계속 활성화되도록 on 클래스 지정 */
+#wrap header nav ul li:hover a,#wrap header nav ul li.on a{color:#51804b;} 
+#wrap header nav ul li:hover:after,#wrap header nav ul li.on:after{background:#51804b;}
+
+footer{width:250px; position:fixed; right:0px; bottom:0px; padding:0px 20px 30px 20px; font-size:11px; color:#aa6035; z-index:12;}
+footer address{padding:0px 0px 15px 0px;}
+/* a 태그는 다 같은 속성으로 */
+footer > a{display:block; width:16px; height:16px; position:absolute; top:-31px;} 
+footer > a.fb{background:url(../images/social_b_facebook.png) no-repeat; right:18px;} 
+footer > a.fb:hover{background:url(../images/social_b_facebook_hover.png) no-repeat;} 
+footer > a.twt{background:url(../images/social_b_twitter.png) no-repeat; right:48px;} 
+footer > a.twt:hover{background:url(../images/social_b_twitter_hover.png) no-repeat;} 
+footer > a.insta{background:url(../images/social_b_instar.png) no-repeat; right:80px;} 
+footer > a.insta:hover{background:url(../images/social_b_instar_hover.png) no-repeat;}
+
+#container{width: 100%; height: 100%; background: url(../images/content-background.jfif) repeat-y;}
