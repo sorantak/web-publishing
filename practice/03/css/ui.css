@@ -32,9 +32,9 @@ html,body{overflow:hidden;height:100%;}
 /* 이러면 h1 태그의 글자가 안 보임 */
 #wrap > h1{font-size: 0;}
 header.logo_box{position: absolute; right: 20px; top: 75px;}
-header.logo_box img{width: 100px;}
+header.logo_box img{width: 256px;}
 /* width: 250px, height: 화면 높이 전체를 사용하고 있어서 100%, 희한하게 url이 맨 앞에 .이 두 개, z-index: header가 최상단에 있도록 함 */
-#wrap header{width: 250px; height: 100%; position: fixed; right: 0px; top: 0px; background: url(../images/header-background.jfif) repeat-y; z-index: 11;}
+#wrap header{width: 256px; height: 100%; position: fixed; right: 0px; top: 0px; background: url(../images/header-background.jfif) repeat; z-index: 11;}
 /* 브라우저 크기에 따라 영역이 달라질 수 있으므로 세로로 수직 정렬 */
 #wrap header nav{width: 100%; height: 100%;}
 /* flex 기준 지정 */
@@ -43,7 +43,7 @@ header.logo_box img{width: 100px;}
 #wrap header nav ul li{margin: 0px, 0px, 10px, 30px; padding-left: 15px; position: relative;}
 #wrap header nav ul li a{font-size: 16px; color: #5c1199; font-weight: 600; line-height: 30px;}
 /* 불릿 만들기 */
-#wrap header nav ul li:after{content:""; display:block; width:5px; height:5px; border-radius:50%; background:rgb(218, 139, 172); position:absolute; left:0px; top:13px;}
+#wrap header nav ul li:after{content:""; display:block; width:5px; height:5px; border-radius:50%; background:rgb(218, 139, 172); position:absolute; left: 5px; top: 13px;}
 /* 마우스로 메뉴 선택하면 색상 변경: 불릿은 <li>태그의 가상 요소, 메뉴가 계속 활성화되도록 on 클래스 지정 */
 #wrap header nav ul li:hover a,#wrap header nav ul li.on a{color:#51804b;} 
 #wrap header nav ul li:hover:after,#wrap header nav ul li.on:after{background:#51804b;}
@@ -59,4 +59,23 @@ footer > a.twt:hover{background:url(../images/social_b_twitter_hover.png) no-rep
 footer > a.insta{background:url(../images/social_b_instar.png) no-repeat; right:80px;} 
 footer > a.insta:hover{background:url(../images/social_b_instar_hover.png) no-repeat;}
 
-#container{width: 100%; height: 100%; background: url(../images/content-background.jfif) repeat-y;}
+#container{width: 100%; height: 100%; position: relative; max-width: 1400px; margin: 0 auto;}
+#container .content{width: 25%; height: 100%; position:absolute;}
+#container #menu1{left: 0%; background: url(../images/content_bg1.jfif) repeat;}
+#container #menu2{left: 25%; background: url(../images/content-background.jfif) repeat;}
+#container #menu3{left: 50%; background: url(../images/content_bg3.jfif) repeat;}
+#container #menu4{left: 75%; background: url(../images/content_bg4.jfif) repeat;}
+/* 각 영역 구분하기 위해 가상요소 넣기 */
+#container .content:before, #container .content:after{content:""; display: block; position: absolute;}
+#container .content:before{width: 1px; height: 100%; background: rgb(49, 12, 63); left: 0; top: 0; z-index: 4;}
+#container .content:after{left: 30px; top: 180px; font-size: 25px; font-weight: 700; color: rgb(31, 131, 219);}
+#container #menu1:after{content: "Introduce Company";}
+#container #menu2:after{content: "Introduce Books";}
+#container #menu3:after{content: "FAQ";}
+#container #menu4:after{content: "Contact Us";}
+#container .content .conbox:before{content:""; display: block; position: absolute;}
+#container #menu1 .conbox:before{background:url(../images/main_ico1.png) no-repeat; width:350px; height:260px; right:-10px; top:130px; background-size:100%;} 
+#container #menu2 .conbox:before{background:url(../images/main_ico2.png) no-repeat; width:180px; height:470px; right:-30px; top:180px; background-size:100%;} 
+#container #menu3 .conbox:before{background:url(../images/main_ico3.png) no-repeat; width:270px; height:310px; right:-60px; top:30px; background-size:100%;} 
+#container #menu4 .conbox:before{background:url(../images/main_ico4.png) no-repeat; width:350px; height:400px; right:-170px; top:100px; background-size:100%;}
+#container .content h2{opacity:0;}
